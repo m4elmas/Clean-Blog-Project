@@ -1,9 +1,26 @@
 const express = require('express');
 const app = express();
+const ejs = require('ejs')
+
+
+app.set('view engine','ejs')
+
+app.use(express.static('public'));
+
 
 app.get('/',(req,res)=>{
-    res.send("MERHABA")
+    res.render("index")
 })
+app.get('/about',(req,res)=>{
+    res.render("about")
+})
+app.get('/add_post',(req,res)=>{
+    res.render("add_post")
+})
+
+
+
+
 
 app.listen(3000,()=>{
     console.log("Sunucu 3000 portunda başlatıldı..")
